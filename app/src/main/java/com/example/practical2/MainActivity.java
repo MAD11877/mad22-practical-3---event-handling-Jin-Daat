@@ -2,6 +2,7 @@ package com.example.practical2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -25,9 +26,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Intent receivingEnd = getIntent();
+        int message = receivingEnd.getIntExtra("RanInt", 0);
+
         //Set User name
         TextView userName = (TextView)findViewById(R.id.userName);
-        userName.setText(newUser.name);
+        userName.setText(newUser.name + " " + message);
 
         //Set User description
         TextView userDesc = (TextView)findViewById(R.id.userDesc);
