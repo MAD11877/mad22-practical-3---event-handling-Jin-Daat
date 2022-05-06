@@ -1,5 +1,7 @@
 package com.example.practical2;
 
+import static java.lang.Math.round;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -31,7 +33,7 @@ public class ListActivity extends AppCompatActivity {
                 builder.setCancelable(true);
                 builder.setPositiveButton("View", new DialogInterface.OnClickListener(){
                     public void onClick(DialogInterface dialog, int id){
-                        int random = 100;
+                        double random = Math.random() * 190000000;
                         Intent activityName = new Intent(ListActivity.this, MainActivity.class);
                         activityName.putExtra("RanInt", random);
                         startActivity(activityName);

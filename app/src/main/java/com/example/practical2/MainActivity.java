@@ -27,17 +27,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Intent receivingEnd = getIntent();
-        int message = receivingEnd.getIntExtra("RanInt", 0);
+        double message = receivingEnd.getDoubleExtra("RanInt", 10);
+
+        System.out.println("The value is " + message);
 
         //Set User name
         TextView userName = (TextView)findViewById(R.id.userName);
-        userName.setText(newUser.name + " " + message);
+        userName.setText(newUser.name + " " + Math.round(message));
 
         //Set User description
         TextView userDesc = (TextView)findViewById(R.id.userDesc);
         userDesc.setText(newUser.description);
 
         Button followBtn = findViewById(R.id.follow);
+        Button messageBtn = findViewById(R.id.message);
 
         followBtn.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -57,6 +60,18 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+
+        messageBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Button clickMessageBtn = findViewById(R.id.follow);
+                Intent activityName = new Intent(MainActivity.this, MessageGroup.class);
+                startActivity(activityName);
+            }
+
+        });
+
+
     }
 
 }
